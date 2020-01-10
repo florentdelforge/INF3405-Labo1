@@ -4,6 +4,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
 import java.util.Scanner;
 import javafx.util.Pair; 
 
@@ -22,6 +23,10 @@ public class Server {
 		Pair<String, Integer> server = getServerInfo(scan);
 		System.out.println(server.getKey());
 		System.out.println(server.getValue());
+		
+		BaseDonnee BD = new BaseDonnee();
+		HashMap<String, String> users = BD.readFromFile("mockDatabase.txt");
+		BD.writeToFile(users, "newDatabase.txt");
 	
 
 
