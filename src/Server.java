@@ -1,3 +1,4 @@
+import java.awt.image.BufferedImage;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -21,14 +22,24 @@ public class Server {
 		// Adresse et port server
 		// Contenu dans une paire 
 		Pair<String, Integer> server = getServerInfo(scan);
+		
+		// Zone Debug
 		System.out.println(server.getKey());
 		System.out.println(server.getValue());
+		
+		
 		
 		BaseDonnee BD = new BaseDonnee();
 		HashMap<String, String> users = BD.readFromFile("mockDatabase.txt");
 		BD.writeToFile(users, "newDatabase.txt");
+		
+		BufferedImage img = ImageOps.readImageFromFile("lassonde.jpg");
+		ImageOps.writeImageToFile("test", img);
+		ImageOps.writeImageToFile("imgSobel", Sobel.process(img));
+		
+		
 	
-
+		// Fin Zone Debug
 
 		// Creation de la connexion pour communiquer avec les clients
 		listener = new ServerSocket();
