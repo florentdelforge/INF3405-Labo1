@@ -40,7 +40,7 @@ public class Server {
 		}
 
 	}
-}
+
 
 /*
  * Une thread qui se charge de traiter la demande de chaque client sur un socket particulier
@@ -89,4 +89,5 @@ private static class ClientHandler extends Thread
 			System.out.println("Connection with client#"+clientNumber+"closed");
 		}
 	}
+}
 }
